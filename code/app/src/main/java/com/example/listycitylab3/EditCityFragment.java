@@ -12,8 +12,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
-import java.io.Serializable;
-
 public class EditCityFragment extends DialogFragment {
     interface EditCityDialogListener {
         void editCity(City city, int position);
