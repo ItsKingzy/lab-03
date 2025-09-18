@@ -45,7 +45,7 @@ public class EditCityFragment extends DialogFragment {
                 .setPositiveButton("Add", (dialog, which) -> {
                     String cityName = editCityName.getText().toString();
                     String provinceName = editProvinceName.getText().toString();
-                    listener.addCity(new City(cityName, provinceName));
+                    listener.editCity(new City(cityName, provinceName));
                 })
                 .create();
     }

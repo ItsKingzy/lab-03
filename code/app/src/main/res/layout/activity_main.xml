@@ -29,6 +29,7 @@
         android:layout_weight="1"
         android:clipToPadding="false"
         android:padding="8dp" >
+
     </ListView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -38,4 +39,12 @@
         android:clickable="true"
         app:srcCompat="@android:drawable/ic_input_add" />
 
-    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_edit_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:srcCompat="@android:drawable/ic_input_delete" />
+
+
+</LinearLayout>
