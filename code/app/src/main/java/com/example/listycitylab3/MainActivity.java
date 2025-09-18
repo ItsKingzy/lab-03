@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     @Override
-    public void editCity(City city) {
+    public void editCity(City city, int position) {
+        dataList.set(position, city);
         cityAdapter.notifyDataSetChanged();
     }
 
@@ -53,10 +54,11 @@ public class MainActivity extends AppCompatActivity implements
         });
 
         // Edit a city
-        cityList.setOnClickListener(this);
-        //FloatingActionButton fabEdit = findViewById(R.id.button_edit_city);
-        //fabEdit.setOnClickListener(v -> {
-            //new EditCityFragment().show(getSupportFragmentManager(), "Edit City");
-        //});
+        cityList.setOnItemClickListener((parent, view, position, id) -> {
+            City selectedCity = dataList.get(position);
+
+            EditCityFragment editFragment = EditCityFragment.newInstance(selectedCity, position);
+            editFragment.show(getSupportFragmentManager(), "Edit City");
+        });
     }
 }
