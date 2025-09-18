@@ -44,7 +44,9 @@ public class EditCityFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_edit_city, null);
+        // fragment_add_city.xml would have been the same as fragment_edit_city.xml
+        // Therefore fragment_edit_city.xml is redundant
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_add_city, null);
 
         Bundle args = getArguments();
         City city = (City) args.getSerializable("City");
