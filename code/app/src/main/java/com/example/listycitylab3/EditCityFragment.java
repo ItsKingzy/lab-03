@@ -64,7 +64,7 @@ public class EditCityFragment extends DialogFragment {
                 .setView(view)
                 .setTitle("Edit City")
                 .setNegativeButton("Cancel", null)
-                .setPositiveButton("submit", (dialog, which) -> {
+                .setPositiveButton("Submit", (dialog, which) -> {
                     String cityName = editCityName.getText().toString();
                     String provinceName = editProvinceName.getText().toString();
                     City updatedCity = new City(cityName, provinceName);
