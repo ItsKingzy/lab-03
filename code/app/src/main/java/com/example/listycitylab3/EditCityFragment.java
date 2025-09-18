@@ -55,10 +55,9 @@ public class EditCityFragment extends DialogFragment {
         EditText editCityName = view.findViewById(R.id.edit_text_city_text);
         EditText editProvinceName = view.findViewById(R.id.edit_text_province_text);
 
-        if (city != null) {
-            editCityName.setText(city.getName());
-            editProvinceName.setText(city.getProvince());
-        }
+        // Sets the text for the dialog popup
+        editCityName.setText(city.getName());
+        editProvinceName.setText(city.getProvince());
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         return builder

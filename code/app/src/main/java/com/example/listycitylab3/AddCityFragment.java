@@ -34,16 +34,18 @@ public class AddCityFragment extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         //return super.onCreateDialog(savedInstanceState);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_add_city, null);
-        EditText editCityName = view.findViewById(R.id.edit_text_city_text);
-        EditText editProvinceName = view.findViewById(R.id.edit_text_province_text);
+
+        EditText addCityName = view.findViewById(R.id.edit_text_city_text);
+        EditText addProvinceName = view.findViewById(R.id.edit_text_province_text);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         return builder
                 .setView(view)
                 .setTitle("Add a city")
                 .setNegativeButton("Cancel", null)
                 .setPositiveButton("Add", (dialog, which) -> {
-                    String cityName = editCityName.getText().toString();
-                    String provinceName = editProvinceName.getText().toString();
+                    String cityName = addCityName.getText().toString();
+                    String provinceName = addProvinceName.getText().toString();
                     listener.addCity(new City(cityName, provinceName));
                 })
                 .create();
