@@ -50,8 +50,8 @@ public class EditCityFragment extends DialogFragment {
         City city = (City) args.getSerializable("City");
         int position = args.getInt("Position");
 
-        EditText editCityName = view.findViewById(R.id.edit_text_current_city_text);
-        EditText editProvinceName = view.findViewById(R.id.edit_text_current_province_text);
+        EditText editCityName = view.findViewById(R.id.edit_text_city_text);
+        EditText editProvinceName = view.findViewById(R.id.edit_text_province_text);
 
         if (city != null) {
             editCityName.setText(city.getName());
