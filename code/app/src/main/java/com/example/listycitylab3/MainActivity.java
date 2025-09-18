@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements
         cityAdapter.notifyDataSetChanged();
     }
 
+    // Method with 2 attributes (city and position)
+        // city holds the values name and province
+        // position represents the position of a selected city/province
     @Override
     public void editCity(City city, int position) {
         dataList.set(position, city);
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements
         });
 
         // Edit a city
+        // From Previous lab, use OnItemClickListener to get position and update the fragment
         cityList.setOnItemClickListener((parent, view, position, id) -> {
             City selectedCity = dataList.get(position);
 
