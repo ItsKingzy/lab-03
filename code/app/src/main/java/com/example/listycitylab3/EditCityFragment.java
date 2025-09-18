@@ -21,9 +21,10 @@ public class EditCityFragment extends DialogFragment {
 
     private EditCityDialogListener listener;
 
+    // Implemented based on the lab slide example (page 10)
     public static EditCityFragment newInstance(City city, int position) {
         Bundle args = new Bundle();
-        args.putSerializable("City", (Serializable) city);
+        args.putSerializable("City", city);      // No longer need to cast to Serializable
         args.putInt("Position", position);
         EditCityFragment fragment = new EditCityFragment();
         fragment.setArguments(args);
@@ -34,6 +35,7 @@ public class EditCityFragment extends DialogFragment {
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
+        // From slides
         if (context instanceof EditCityFragment.EditCityDialogListener) {
             listener = (EditCityFragment.EditCityDialogListener) context;
         } else {
@@ -48,17 +50,28 @@ public class EditCityFragment extends DialogFragment {
         // Therefore fragment_edit_city.xml is redundant
         View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_add_city, null);
 
+        /*
+        - Establish Bundle args
+        - Fetch city (includes city and province data)
+        - Fetch the position on screen
+         */
         Bundle args = getArguments();
         City city = (City) args.getSerializable("City");
         int position = args.getInt("Position");
 
+        // Reusing fragment_add_city.xml for simplicity
         EditText editCityName = view.findViewById(R.id.edit_text_city_text);
         EditText editProvinceName = view.findViewById(R.id.edit_text_province_text);
 
         // Sets the text for the dialog popup
-        editCityName.setText(city.getName());
-        editProvinceName.setText(city.getProvince());
+        editCityName.setText(city.getName());               // Getter name of city
+        editProvinceName.setText(city.getProvince());       // Getter name of province
 
+        /*
+        Copy paste from the lab slides... not 100% sure what this does, just know it works
+        for the dialog popup. Subtle changes were made in order for it to function with the
+        edit city functionality
+         */
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         return builder
                 .setView(view)
