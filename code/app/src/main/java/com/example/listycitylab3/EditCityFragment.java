@@ -12,18 +12,18 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
-public class AddCityFragment extends DialogFragment {
-    interface AddCityDialogListener {
-        void addCity(City city);
+public class EditCityFragment extends DialogFragment {
+    interface EditCityDialogListener {
+        void editCity(City city);
     }
-    private AddCityDialogListener listener;
+    private EditCityDialogListener listener;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
 
-        if (context instanceof AddCityDialogListener) {
-            listener = (AddCityDialogListener) context;
+        if (context instanceof AddCityFragment.AddCityDialogListener) {
+            listener = (EditCityFragment.EditCityDialogListener) context;
         } else {
             throw new RuntimeException(context + " must implement AddCityDialogListener");
         }
@@ -33,7 +33,8 @@ public class AddCityFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         //return super.onCreateDialog(savedInstanceState);
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_add_city, null);
+        System.out.println("Hello");
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_edit_city, null);
         EditText editCityName = view.findViewById(R.id.edit_text_current_city_text);
         EditText editProvinceName = view.findViewById(R.id.edit_text_current_province_text);
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -48,4 +49,6 @@ public class AddCityFragment extends DialogFragment {
                 })
                 .create();
     }
+
+
 }
